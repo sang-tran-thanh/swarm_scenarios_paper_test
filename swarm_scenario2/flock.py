@@ -134,7 +134,8 @@ def main():
             else:
                 stat = b.update(boids,obs)
                 if b0.id == b.id:   
-                    vel_breakdown_filewriter.write('%f,%f,%f,%f,%f\n'%(stat[0],stat[1],stat[2],stat[3],stat[4]))
+                    if len(sys.argv)>1:
+                        vel_breakdown_filewriter.write('%f,%f,%f,%f,%f\n'%(stat[0],stat[1],stat[2],stat[3],stat[4]))
         averdist += averagedistance.AverageDistancePerFrame(boids)
         # if frame_count% 50 ==0:
             # print(len(boids))
@@ -156,7 +157,8 @@ def main():
             for ob in obs:
                 obs_sprites.remove(ob)
             obs.clear()
-            obs_gen(obs)
+            if len(sys.argv)>1:
+                obs_gen(obs)
             for ob in obs:
                 obs_sprites.add(ob)
             b0 = boids[9]

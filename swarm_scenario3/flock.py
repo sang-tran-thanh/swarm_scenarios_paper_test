@@ -26,50 +26,6 @@ def obs_gen(obs):
         for k in range(25,50,3):
             obs.append(Obstacle([w+k,h-k+50]))
             obs.append(Obstacle([w+k,h+k-50]))
-        # for i in [h,h+100]:
-        #     for j in range(w,w+100,5):
-        #         obs.append(Obstacle([j,i]))
-        # for i in [w,w+100]:
-        #     for j in range(h,h+100,5):
-        #         obs.append(Obstacle([i,j]))
-
-
-# def obs_gen(obs):
-#     a = [(360,259), (509, 190),(550, 330),(250, 235),(744, 200),(317, 446),(719, 410),(300, 370)]
-#     for i in range(int(3*700/4),700,5):
-#         obs.append(Obstacle([1200,i]))
-#     for i in range(int(3*1200/4),1200,5):
-#         obs.append(Obstacle([i,700]))
-
-#     for m in a:
-#         for k in range(0,25,3):
-#             obs.append(Obstacle([m[0]+k,m[1]-k]))
-#             obs.append(Obstacle([m[0]+k,m[1]+k]))
-#         for k in range(25,50,3):
-#             obs.append(Obstacle([m[0]+k,m[1]-k+50]))
-#             obs.append(Obstacle([m[0]+k,m[1]+k-50]))
-
-
-
-    # for i in [randint(100,200),randint(300,400),randint(500,600)]:
-    #     for j in range(randint(200,300),randint(500,600),5):
-    #         obs.append(Obstacle([j,i]))
-    #     for j in range(randint(600,700),randint(900,1000),5):
-    #         obs.append(Obstacle([j,i]))
-    # for i in [randint(200,300),randint(500,600),randint(600,700),randint(900,1000)]:
-    #     for j in range(int(1.5*height/4),int(1.70*height/4),5):
-    #         obs.append(Obstacle([i,j]))
-    #     for j in range(int(2.30*height/4),int(2.5*height/4),5):
-    #         obs.append(Obstacle([i,j]))
-
-    # for i in [int(1.5*height/4),int(1.70*height/4),int(2.30*height/4),int(2.5*height/4)]:
-    #     for j in range(int(1.5*width/4),int(2.5*width/4),5):
-    #         obs.append(Obstacle([j,i]))
-    # for i in [int(1.5*width/4),int(1.5*width/4+2),int(2.5*width/4),int(2.5*width/4+2)]:
-    #     for j in range(int(1.5*height/4),int(1.70*height/4),5):
-    #         obs.append(Obstacle([i,j]))
-    #     for j in range(int(2.30*height/4),int(2.5*height/4),5):
-    #         obs.append(Obstacle([i,j]))
 
 
 def main():
@@ -185,7 +141,8 @@ def main():
             for ob in obs:
                 obs_sprites.remove(ob)
             obs.clear()
-            obs_gen(obs)
+            if len(sys.argv)>1:
+                obs_gen(obs)
             for ob in obs:
                 obs_sprites.add(ob)
             b0 = boids[5]
